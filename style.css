@@ -315,6 +315,7 @@ button { font: inherit; cursor: pointer; }
 }
 
 /* Steps list + each step */
+
 .steps { display: grid; gap: 14px; margin-top: 0; }
 .step {
   display: grid;
