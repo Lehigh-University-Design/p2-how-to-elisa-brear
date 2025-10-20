@@ -7,8 +7,15 @@
 
   <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Playfair+Display:wght@400..700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* optional: native smooth scrolling for anchor fallback */
+    html { scroll-behavior: smooth; }
+  </style>
 </head>
 <body>
+  <!-- anchor for Back-to-Top -->
+  <div id="top"></div>
+
   <!-- Header -->
   <header class="site-header">
     <div class="container header-grid">
@@ -19,7 +26,7 @@
       <nav class="site-nav" aria-label="Primary">
         <a href="recipe.html" class="active">Recipe</a>
         <a href="index.html#background">History</a>
-        <a href="index.html#photos">Photos</a>
+        <a href="index.html#photos">My Photos</a>
       </nav>
       <div class="header-actions"></div>
     </div>
@@ -36,28 +43,32 @@
           <button id="btn-download-pdf" class="btn" type="button">Download PDF</button>
         </div>
       </header>
-  
-      <!-- Hero image -->
-      <figure class="img-swap hero-media" style="--ratio: 16/9;">
-        <img class="bw"    src="assets/recipepage/prettyballsbw.jpg"   alt="Æbleskivers with strawberries">
-        <img class="color" src="assets/recipepage/prettyballs copy.jpg" alt="" aria-hidden="true">
-      </figure>
-  
-      <!-- Meta pills -->
-      <div class="meta">
-        <div class="pill">Prep: 20 min</div>
-        <div class="pill">Cook: 75 min</div>
-        <div class="pill">Serves: 24 aebleskivers</div>
-      </div>
+
+      <!-- Hero -->
+<div class="hero-wrap">
+  <figure class="img-swap hero-media" style="--ratio: 16/9;">
+    <img class="bw"    src="assets/recipepage/prettyballsbw.jpg"   alt="Æbleskivers with strawberries">
+    <img class="color" src="assets/recipepage/prettyballs copy.jpg" alt="" aria-hidden="true">
+  </figure>
+
+  <div class="meta">
+    <div class="pill">Prep: 20 min</div>
+    <div class="pill">Cook: 75 min</div>
+    <div class="pill">Serves: 24 æbleskivers</div>
+  </div>
+</div>
+
     </section>
-  
+
+    
+
     <!-- ===== Tile 2: BODY (Steps | Ingredients) ===== -->
     <section class="card recipe-body">
       <div class="recipe-columns">
         <!-- LEFT: Steps -->
         <section class="steps" aria-label="Step by step">
-          <!-- your existing step <article class="step"> blocks go here (unchanged) -->
           <!-- Step 1 -->
+          
           <article class="step">
             <figure class="img-swap" style="--ratio: 1/1;">
               <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Ingredients on counter">
@@ -65,200 +76,171 @@
             </figure>
             <div>
               <h3>1) Gather Supplies</h3>
-              <p>Ensure you have a gas stove, an æbelsekiver pan(preheat to 400 degrees aka medium-high), bowls, measuring spoons, sifter, and a standing mixer before starting.</p>
+              <p>Ensure you have a gas stove, an æbelsekiver pan (preheat to 400°/med-high), bowls, measuring spoons, sifter, and a standing mixer before starting.</p>
             </div>
           </article>
 
-        <!-- Step 2 -->
-        <article class="step">
-          <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/ingredientsbw.jpg" alt="Dry ingredients">
-            <img class="color" src="assets/recipepage/ingredients.JPG"   alt="" aria-hidden="true">
-          </figure>
-          <div>
-            <h3>2) Prep Ingredients</h3>
-            <p>Gather together the ingredients which are: flour, salt, granulated sugar, nutmeg, eggs, buttermilk, regular milk, Crisco, butter, and baking soda. </p>
+          <!-- Step 2 -->
+          <article class="step">
+            <figure class="img-swap" style="--ratio: 1/1;">
+              <img class="bw"    src="assets/recipepage/ingredientsbw.jpg" alt="Dry ingredients">
+              <img class="color" src="assets/recipepage/ingredients.JPG"   alt="" aria-hidden="true">
+            </figure>
+            <div>
+              <h3>2) Prep Ingredients</h3>
+              <p>Gather flour, salt, sugar, nutmeg, eggs, buttermilk, regular milk, Crisco, butter, and baking soda.</p>
+            </div>
+          </article>
+
+          <!-- Step 3 -->
+          <article class="step">
+            <figure class="img-swap" style="--ratio: 1/1;">
+              <img class="bw"    src="assets/recipepage/dry_ingredientsbw.jpg" alt="">
+              <img class="color" src="assets/recipepage/dry_ingredients.JPG"   alt="" aria-hidden="true">
+            </figure>
+            <div>
+              <h3>3) Dry + Wet Ingredients</h3>
+              <p><strong>Dry:</strong> sift flour, salt, sugar, nutmeg. <br><br>
+                 <strong>Wet:</strong> whisk egg yolks, buttermilk, milk. Add baking soda dissolved in warm water. <br><br>
+                 Beat whites to soft peaks in a separate bowl.</p>
+            </div>
+          </article>
+
+          <!-- Step 4 -->
+          <article class="step">
+            <figure class="img-swap" style="--ratio: 1/1;">
+              <img class="bw"    src="assets/recipepage/bowlbw.jpg" alt="">
+              <img class="color" src="assets/recipepage/bowl.JPG"   alt="" aria-hidden="true">
+            </figure>
+            <div>
+              <h3>4) Combine + Egg Whites</h3>
+              <p>Stir wet into dry just until combined; don’t overmix. Fold in half the beaten whites.</p>
+            </div>
+          </article>
+
+          <!-- Step 5 -->
+          <article class="step">
+            <figure class="img-swap" style="--ratio: 1/1;">
+              <img class="bw"    src="assets/recipepage/ballsturn1bw.jpg" alt="">
+              <img class="color" src="assets/recipepage/ballsturn2.JPG"   alt="" aria-hidden="true">
+            </figure>
+            <div>
+              <h3>5) Cook</h3>
+              <p>Butter pans with melted butter + Crisco. Lower to ~300° before adding batter; fill ¾. Turn each ball in quarters until golden. Adjust heat between batches.</p>
+            </div>
+          </article>
+
+          <!-- Step 6 -->
+          <article class="step">
+            <figure class="img-swap" style="--ratio: 1/1;">
+              <img class="bw"    src="assets/recipepage/finalballsbw.jpg" alt="">
+              <img class="color" src="assets/recipepage/finalballs.JPG"   alt="" aria-hidden="true">
+            </figure>
+            <div>
+              <h3>6) Last Half of Batter</h3>
+              <p>Fold in remaining whites and finish cooking.</p>
+            </div>
+          </article>
+
+          <!-- Step 7 -->
+          <article class="step">
+            <figure class="img-swap" style="--ratio: 1/1;">
+              <img class="bw"    src="assets/recipepage/prettyballsbw.jpg" alt="">
+              <img class="color" src="assets/recipepage/prettyballs copy.jpg"   alt="" aria-hidden="true">
+            </figure>
+            <div>
+              <h3>7) Serve</h3>
+              <p>Dust with powdered sugar; serve warm with jam, syrup, cinnamon sugar, or Nutella and fruit.</p>
+            </div>
+          </article>
+        </section>
+
+        <!-- RIGHT: Sticky Ingredients -->
+        <aside class="ingredients" aria-label="Ingredients" id="ingredients">
+          <div class="ing-head">Ingredients</div>
+
+          <ul class="ing-list">
+            <!-- data-qty is the amount for ONE batch -->
+            <li data-qty="2"     data-unit="Cups"><span class="label">Flour</span>           <span class="pill"></span></li>
+            <li data-qty="0.5"   data-unit="tsp"><span class="label">Salt</span>              <span class="pill"></span></li>
+            <li data-qty="2"     data-unit="tbsp"><span class="label">Sugar</span>            <span class="pill"></span></li>
+            <li data-qty="1.5"   data-unit="tsp"><span class="label">Nutmeg</span>            <span class="pill"></span></li>
+            <li data-qty="4"     data-unit="" data-round="1"><span class="label">Egg yolks</span>  <span class="pill"></span></li>
+            <li data-qty="4"     data-unit="" data-round="1"><span class="label">Egg whites</span> <span class="pill"></span></li>
+            <li data-qty="1.5"   data-unit="Cups"><span class="label">Buttermilk</span>       <span class="pill"></span></li>
+            <li data-qty="0.333" data-unit="Cup"><span class="label">Regular milk</span>      <span class="pill"></span></li>
+            <li data-qty="0.667" data-unit="Cup"><span class="label">Crisco</span>            <span class="pill"></span></li>
+            <li data-qty="0.25"  data-unit="Cup"><span class="label">Butter (melted)</span>   <span class="pill"></span></li>
+            <li data-qty="0.5"   data-unit="tsp"><span class="label">Baking Soda</span>       <span class="pill"></span></li>
+            <li data-qty="0.25"  data-unit="Cup"><span class="label">Water</span>             <span class="pill"></span></li>
+          </ul>
+
+          <div class="ing-foot">
+            <div class="batches-label"># of Batches</div>
+            <div class="batches-ctrl">
+              <button type="button" id="bt-dec" aria-label="Decrease batches">−</button>
+              <input type="number" id="bt-input" min="1" max="60" step="1" />
+              <button type="button" id="bt-inc" aria-label="Increase batches">+</button>
+            </div>
           </div>
-        </article>
-
-        <!-- Step 3 -->
-        <article class="step">
-          <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/dry_ingredientsbw.jpg" alt="Aebleskiver pan preheating">
-            <img class="color" src="assets/recipepage/dry_ingredients.JPG"   alt="" aria-hidden="true">
-          </figure>
-          <div>
-            <h3>3) Dry + Wet Ingredients</h3>
-            <p>Dry: Into a large bowl sift together the flour, salt, sugar, and then nutmeg.
-              <br>
-              <br> Wet: In another bowl whisk egg yolks, buttermilk, and milk. Add in after the dissolved basking soda+warm water mixture.
-              <br>
-              <br>In another bowl (using standing mixer) beat egg whites until soft peaks are formed.</p>
-          </div>
-        </article>
-
-        <!-- Step 4 -->
-        <article class="step">
-          <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/bowlbw.jpg" alt="Aebleskiver pan preheating">
-            <img class="color" src="assets/recipepage/bowl.JPG"   alt="" aria-hidden="true">
-          </figure>
-          <div>
-            <h3>4) Combine + Egg Whites </h3>
-            <p>Pour wet ingredients into dry ingredients. Stir until no dry streaks remain (a few small lumps are ok). Do not over mix.
-              <br>
-              <br>
-              Gently fold in 1/2 of beaten egg whites into the batter.</p>
-          </div>
-        </article>
-
-        <!-- Step 5 -->
-        <article class="step">
-          <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/ballsturn1bw.jpg" alt="Aebleskiver pan preheating">
-            <img class="color" src="assets/recipepage/ballsturn2.JPG"   alt="" aria-hidden="true">
-          </figure>
-          <div>
-            <h3>5) Cook</h3>
-            <p>Combine melted butter anc Crisco and then use it to scoop 1 tbs of the mixture into each circle of pan. Turn heat down to 300 degrees before adding batter. Fill the half circles until 3/4 full. When edges are cooked enough to move, use a skewer to turn each ball a quarter at a time until golden. Adjust heat back to 350 degrees between batches.   </p>
-          </div>
-        </article>
-
-        <!-- Step 6 -->
-        <article class="step">
-          <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/finalballsbw.jpg" alt="Aebleskiver pan preheating">
-            <img class="color" src="assets/recipepage/finalballs.JPG"   alt="" aria-hidden="true">
-          </figure>
-          <div>
-            <h3>6) Last Half of Batter </h3>
-            <p>Fold in the second half of the beaten egg whites to the last half of the batter, to maintain fluff. Then Finish cooking the rest of the batter.</p>
-          </div>
-        </article>
-
-        <!-- Step 7 -->
-        <article class="step">
-          <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/prettyballsbw.jpg" alt="Aebleskiver pan preheating">
-            <img class="color" src="assets/recipepage/prettyballs copy.jpg"   alt="" aria-hidden="true">
-          </figure>
-          <div>
-            <h3>7) Serve</h3>
-            <p>Remove and dust with powdered sugar. Serve warm with jam, syrup, Cinnamon sugar, or Nutella and Fruit! 
-              <br>
-              <br>
-              Enjoy!! :) </p>
-          </div>
-        </article>
-
-      </section>
-
-      <!-- RIGHT: Sticky Ingredients -->
-<aside class="ingredients" aria-label="Ingredients" id="ingredients">
-  <div class="ing-head">Ingredients</div>
-
-  <ul class="ing-list">
-    <!-- data-qty is the amount for the BASE recipe (see JS baseServings) -->
-    <li data-qty="2"    data-unit="Cups"><span class="label">Flour</span>          <span class="pill"></span></li>
-    <li data-qty="0.5"  data-unit="tsp"><span class="label">Salt</span>             <span class="pill"></span></li>
-    <li data-qty="2"    data-unit="tbsp"><span class="label">Sugar</span>           <span class="pill"></span></li>
-    <li data-qty="1.5"  data-unit="tsp"><span class="label">Nutmeg</span>           <span class="pill"></span></li>
-    <li data-qty="4"    data-unit=""    data-round="1"><span class="label">Egg yolks</span>   <span class="pill"></span></li>
-    <li data-qty="4"    data-unit=""    data-round="1"><span class="label">Egg whites</span>  <span class="pill"></span></li>
-    <li data-qty="1.5"  data-unit="Cups"><span class="label">Buttermilk</span>      <span class="pill"></span></li>
-    <li data-qty="0.333"data-unit="Cup"><span class="label">Regular milk</span>     <span class="pill"></span></li>
-    <li data-qty="0.667"data-unit="Cup"><span class="label">Crisco</span>           <span class="pill"></span></li>
-    <li data-qty="0.25" data-unit="Cup"><span class="label">Butter (melted)</span>  <span class="pill"></span></li>
-    <li data-qty="0.5"  data-unit="tsp"><span class="label">Baking Soda</span>      <span class="pill"></span></li>
-    <li data-qty="0.25" data-unit="Cup"><span class="label">Water</span>            <span class="pill"></span></li>
-  </ul>
-
-  <div class="ing-foot">
-    <div class="batches-label"># of Batches</div>
-      <div class="batches-ctrl">
-        <button type="button" id="bt-dec" aria-label="Decrease batches">−</button>
-        <input type="number" id="bt-input" min="1" max="60" step="1" />
-        <button type="button" id="bt-inc" aria-label="Increase batches">+</button>
+        </aside>
       </div>
-  </div>
-</aside>
-    </div>
-  </section>
-  <!-- Back to Top under the steps+ingredients tile -->
-<div class="backtop-wrap container">
-  <button id="back-to-top" class="btn backtop-btn" type="button" aria-label="Back to top">Back to Top ↑</button>
-</div> 
+    </section>
 
-</main>
+    <!-- Back to Top under the steps+ingredients tile -->
+    <div class="backtop-wrap container">
+      <a href="#top" id="back-to-top" class="btn backtop-btn" role="button">Back to Top ↑</a>
+    </div>
+  </main>
 
   <footer class="container site-footer">
     <p>© Kamp Family Æbleskiver Recipe</p>
   </footer>
 
   <script>
-      // ===== Ingredients autoscale by batches =====
-    // Base batches the data-qty amounts are written for (set to 1 if your list is for a single batch)
+    // ===== Batches autoscale (quantities are for ONE batch) =====
     const baseBatches = 1;
+    const ingRoot = document.getElementById('ingredients');
+    const btInput = document.getElementById('bt-input');
+    const btInc   = document.getElementById('bt-inc');
+    const btDec   = document.getElementById('bt-dec');
+    btInput.value = baseBatches;
 
-  const ingRoot  = document.getElementById('ingredients');
-  const btInput  = document.getElementById('bt-input');
-  const btInc    = document.getElementById('bt-inc');
-  const btDec    = document.getElementById('bt-dec');
-
-  // Start at base batches
-  btInput.value = baseBatches;
-
-  function prettyFraction(x) {
-    const rounded = Math.round(x * 48) / 48;
-    const n = parseFloat(rounded.toFixed(3));
-    if (Math.abs(n - Math.round(n)) < 0.01) return String(Math.round(n));
-    const fracs = [
-      [0.125,"⅛"],[0.25,"¼"],[0.333,"⅓"],[0.375,"⅜"],
-      [0.5,"½"],[0.625,"⅝"],[0.666,"⅔"],[0.75,"¾"],[0.875,"⅞"]
-    ];
-    for (const [f,g] of fracs) {
-      if (Math.abs(n - f) < 0.02) return g;
-      if (n > 1 && Math.abs(n - (Math.floor(n)+f)) < 0.02) return `${Math.floor(n)} ${g}`;
+    function prettyFraction(x) {
+      const rounded = Math.round(x * 48) / 48;
+      const n = parseFloat(rounded.toFixed(3));
+      if (Math.abs(n - Math.round(n)) < 0.01) return String(Math.round(n));
+      const fracs = [
+        [0.125,"⅛"],[0.25,"¼"],[0.333,"⅓"],[0.375,"⅜"],
+        [0.5,"½"],[0.625,"⅝"],[0.666,"⅔"],[0.75,"¾"],[0.875,"⅞"]
+      ];
+      for (const [f,g] of fracs) {
+        if (Math.abs(n - f) < 0.02) return g;
+        if (n > 1 && Math.abs(n - (Math.floor(n)+f)) < 0.02) return `${Math.floor(n)} ${g}`;
+      }
+      return (Math.round(n*100)/100).toString();
     }
-    return (Math.round(n*100)/100).toString();
-  }
 
-  function updateIngredientsByBatches() {
-    const batches = Math.max(1, Math.min(60, parseInt(btInput.value || baseBatches, 10)));
-    btInput.value = batches;
+    function updateIngredientsByBatches() {
+      const batches = Math.max(1, Math.min(60, parseInt(btInput.value || baseBatches, 10)));
+      btInput.value = batches;
+      ingRoot.querySelectorAll('.ing-list li').forEach(li => {
+        const base = parseFloat(li.dataset.qty || '0');
+        const unit = li.dataset.unit || '';
+        const roundWhole = li.dataset.round === '1';
+        const scaled = base * (batches / baseBatches);
+        const display = roundWhole ? Math.round(scaled) : prettyFraction(scaled);
+        li.querySelector('.pill').textContent = unit ? `${display} ${unit}` : `${display}`;
+      });
+    }
 
-    ingRoot.querySelectorAll('.ing-list li').forEach(li => {
-      const base = parseFloat(li.dataset.qty || '0');   // qty for baseBatches
-      const unit = li.dataset.unit || '';
-      const roundWhole = li.dataset.round === '1';
+    btInc?.addEventListener('click', () => { btInput.value = (parseInt(btInput.value,10)||baseBatches) + 1; updateIngredientsByBatches(); });
+    btDec?.addEventListener('click', () => { btInput.value = Math.max(1,(parseInt(btInput.value,10)||baseBatches) - 1); updateIngredientsByBatches(); });
+    btInput?.addEventListener('input', updateIngredientsByBatches);
+    updateIngredientsByBatches();
 
-      const scaled = base * (batches / baseBatches);
-      const display = roundWhole ? Math.round(scaled) : prettyFraction(scaled);
-      li.querySelector('.pill').textContent = unit ? `${display} ${unit}` : `${display}`;
-    });
-  }
-
-  btInc?.addEventListener('click', () => { btInput.value = (parseInt(btInput.value,10)||baseBatches) + 1; updateIngredientsByBatches(); });
-  btDec?.addEventListener('click', () => { btInput.value = Math.max(1,(parseInt(btInput.value,10)||baseBatches) - 1); updateIngredientsByBatches(); });
-  btInput?.addEventListener('input', updateIngredientsByBatches);
-
-  updateIngredientsByBatches();
-
-// Events
-svInc?.addEventListener('click', () => { svInput.value = (parseInt(svInput.value,10)||baseServings) + 1; updateIngredients(); });
-svDec?.addEventListener('click', () => { svInput.value = Math.max(1,(parseInt(svInput.value,10)||baseServings) - 1); updateIngredients(); });
-svInput?.addEventListener('input', updateIngredients);
-
-// Initial render
-updateIngredients()
-
-    // TODO: replace with your real public URL when deployed
+    // ===== Share (replace SITE_URL when deployed) =====
     const SITE_URL = 'https://your-domain.com/recipe.html'; // TODO real link
-  
-    // EXACT file path + case from your project:
-    const PDF_PATH = 'assets/random/recipe_card.pdf';
-  
-    // Share site link (copies link if Web Share isn't supported)
     document.getElementById('btn-share-site')?.addEventListener('click', async () => {
       const data = { title: 'Kamp Family æbleskiver Recipe', text: 'Here’s the recipe page!', url: SITE_URL };
       if (navigator.share) {
@@ -268,30 +250,30 @@ updateIngredients()
         catch { window.prompt('Copy this link:', SITE_URL); }
       }
     });
-  
-    // Robust download of the PDF (works even when browser prefers inline view)
+
+    // ===== Download recipe card PDF =====
+    const PDF_PATH = 'assets/random/recipe_card.pdf';
     document.getElementById('btn-download-pdf')?.addEventListener('click', async () => {
       try {
         const res = await fetch(PDF_PATH, { cache: 'no-store' });
         if (!res.ok) throw new Error(`HTTP ${res.status}`);
         const blob = await res.blob();
         const url = URL.createObjectURL(blob);
-        const a = Object.assign(document.createElement('a'), {
-          href: url,
-          download: 'recipe_card.pdf'
-        });
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      } catch (e) {
-        // Fallback: open in a new tab so the user can save it
+        const a = Object.assign(document.createElement('a'), { href: url, download: 'recipe_card.pdf' });
+        document.body.appendChild(a); a.click(); a.remove(); URL.revokeObjectURL(url);
+      } catch {
         window.open(PDF_PATH, '_blank', 'noopener,noreferrer');
       }
     });
-  
-    // Print the on-page card
-    document.getElementById('btn-export')?.addEventListener('click', () => window.print());
+
+    // ===== JS smooth-scroll fallback (works in old browsers) =====
+    document.getElementById('back-to-top')?.addEventListener('click', (e) => {
+      // if the browser doesn't support smooth anchor, force it
+      if (!('scrollBehavior' in document.documentElement.style)) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    });
   </script>
 </body>
 </html>
