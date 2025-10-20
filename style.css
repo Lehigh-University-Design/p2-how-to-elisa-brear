@@ -2,12 +2,12 @@
    Tokens & Fonts
 =============================== */
 :root {
-  --container: 1100px;
+  --container: 1400px;
   --gap: 24px;
 
-  --site-bg: #F4F3F1;   /* requested background */
-  --brand: #111;        /* logo dot */
-  --border: #000;       /* black borders (wireframe look) */
+  --site-bg: #F4F3F1;
+  --brand: #111;
+  --border: #000;
   --muted: #F5F5F5;
   --radius: 6px;
 
@@ -127,31 +127,35 @@ button { font: inherit; cursor: pointer; }
 .photo-tile { display: grid; gap: 6px; }
 
 /* ===============================
-   Recipe page layout
+   Recipe page layout (two tiles)
 =============================== */
-/* ===== Two-column: Main (steps) | Sidebar (ingredients) ===== */
-.recipe-grid {
+
+/* Tile spacing */
+.recipe-hero { margin-top: 24px; margin-bottom: 24px; }
+
+/* Title + actions row inside tiles */
+.recipe-head {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 12px;
+}
+.recipe-head h1 { margin: 0; font-size: clamp(1.8rem, 1rem + 2.6vw, 2.6rem); }
+.head-actions { margin-left: auto; display: flex; gap: 10px; }
+
+/* Hero image styling */
+.hero-media { border: 2px solid var(--border); border-radius: var(--radius); }
+.img-swap { background: var(--site-bg); }  /* unify background */
+
+/* BODY tile: Steps | Ingredients columns */
+.recipe-body .recipe-columns {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 340px; /* main | sidebar */
+  grid-template-columns: minmax(0, 1fr) clamp(260px, 28vw, 360px); /* steps | ingredients */
   gap: var(--gap);
   align-items: start;
-  margin-top: 24px;
 }
 
-/* Main card */
-#recipe-card {
-  border: 2px solid var(--border);
-  background: var(--site-bg);
-  border-radius: var(--radius);
-  padding: 16px;
-  position: relative;   /* keeps content below the sticky aside */
-  z-index: 0;
-}
-
-/* Sidebar */
-.ingredients {
+/* Sticky ingredients */
+.recipe-body .ingredients {
   position: sticky;
-  top: 76px;            /* adjust to your header height */
+  top: 76px;                 /* match header height */
   align-self: start;
   background: var(--site-bg);
   border: 2px solid var(--border);
@@ -159,22 +163,130 @@ button { font: inherit; cursor: pointer; }
   padding: 16px;
   max-height: calc(100dvh - 100px);
   overflow: auto;
-  z-index: 2;           /* sits above main if they touch */
 }
-.steps { display: grid; gap: 14px; margin-top: 18px; }
+
+/* ===== Ingredients card (sticky) ===== */
+
+.ingredients {
+  position: sticky;
+  top: 76px;
+  align-self: start;
+  background: var(--site-bg);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0;
+  overflow: hidden;
+  max-height: calc(100dvh - 100px);
+}
+
+/* Header */
+.ing-head {
+  background: var(--site-bg);
+  border-bottom: 2px solid var(--border);
+  padding: 10px 14px;
+  font-family: var(--font-heading);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* Ingredient list */
+.ing-list {
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;               /* less vertical padding */
+  display: grid;
+  gap: 6px;                         /* reduce space between lines */
+}
+
+.ing-list li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.ing-list .label {
+  font-size: 0.98rem;
+}
+
+.ing-list .pill {
+  padding: 4px 10px;                /* smaller pill padding */
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  background: #E6E6E6;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 80px;
+  text-align: center;
+}
+
+/* Footer */
+.ing-foot {
+  border-top: 2px solid var(--border);
+  background: var(--site-bg);
+  padding: 10px 12px;
+}
+
+.batches-label {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  margin-bottom: 6px;              /* smaller gap */
+}
+
+.batches-ctrl {
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 6px;                        /* bring buttons closer */
+  align-items: center;
+}
+
+.batches-ctrl button {
+  width: 30px; height: 30px;       /* smaller buttons */
+  border: 2px solid var(--border);
+  background: #fff;
+  border-radius: 999px;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.batches-ctrl input {
+  width: 54px; height: 30px;
+  border: 2px solid var(--border);
+  border-radius: 999px;
+  text-align: center;
+  background: var(--site-bg);
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+/* Mobile: Ingredients above Steps when stacked (you already have stacking rules) */
+@media (max-width: 700px) {
+  .ingredients { position: static; max-height: none; }
+}
+
+/* Steps list + each step */
+.steps { display: grid; gap: 14px; margin-top: 0; }
 .step {
   display: grid;
-  grid-template-columns: clamp(260px, 35vw, 520px) 1fr; /* image | text */
+  grid-template-columns: clamp(260px, 35vw, 520px) 1fr;  /* image | text */
   gap: 24px;
   align-items: start;
   border: 2px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
-  background: var(--site-bg);;
+  background: var(--site-bg);
 }
-
 .step h3 { margin: 0 0 6px; font-size: 1.05rem; }
 .step p  { margin: 0; color: #333; }
+
+
+/* Responsive: stack body tile and put Ingredients on top */
+@media (max-width: 700px) {
+  .recipe-body .recipe-columns { grid-template-columns: 1fr; }
+  .recipe-body .ingredients { position: static; max-height: none; order: -1; margin-bottom: 12px; }
+  .step { grid-template-columns: 1fr; }
+}
 
 /* ===== Step-by-Step Section ===== */
 .step-card {
@@ -244,23 +356,18 @@ button { font: inherit; cursor: pointer; }
   #recipe-card { position: absolute; inset: 0; margin: 0; border: 2px solid var(--border); box-shadow: none; }
 }
 
-/* ====== Bottom Export Button ====== */
-.bottom-export {
+/* Back to Top placement & style */
+.backtop-wrap {
   display: flex;
   justify-content: center;
-  margin-top: 40px;
-  margin-bottom: 60px;
+  margin: 28px auto 60px;
 }
 
-.bottom-export .btn {
-  padding: 10px 18px;
-  font-size: 1rem;
+.backtop-btn {
+  padding: 10px 16px;
   border: 2px solid var(--border);
   border-radius: var(--radius);
   background: var(--site-bg);
-  transition: background 0.2s ease;
+  font-weight: 600;
 }
-
-.bottom-export .btn:hover {
-  background: var(--muted);
-}
+.backtop-btn:hover { background: var(--muted); }
