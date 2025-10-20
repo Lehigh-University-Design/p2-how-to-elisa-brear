@@ -1,11 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Æbleskivers | Danish Pancakes</title>
+
+  <!-- Google Fonts (adjust if needed) -->
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Playfair+Display:wght@400..700&display=swap" rel="stylesheet">
+  <!-- IMPORTANT: filename matches your project -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    
+  <!-- ================= Header (grid) ================= -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <!-- Home button (ball) -->
+      <a class="logo-home" href="index.html" aria-label="Go to homepage">
+        <!-- If you prefer an image ball, uncomment the img and remove the span -->
+        <!-- <img src="assets/random/Blackball.png" alt="" class="logo-dot" aria-hidden="true"> -->
+        <span class="logo-dot" aria-hidden="true"></span>
+        <strong class="wordmark">æbleskivers</strong>
+      </a>
+
+      <!-- Center nav -->
+      <nav class="site-nav" aria-label="Primary">
+        <a href="recipe.html">Recipe</a>
+        <a href="#background">Background</a>
+        <a href="#photos">Photos</a>
+      </nav>
+
+      <!-- Right actions (optional) -->
+      <div class="header-actions"><!-- add icons/buttons if wanted --></div>
+    </div>
+  </header>
+
+  <!-- ================= Main ================= -->
+  <main class="container landing">
+
+    <!-- ===== Hero ===== -->
+    <div class="card hero-section" id="hero">
+      <div class="hero-text">
+        <h1>How to Make Æbleskivers</h1>
+        <p>Danish pancakes filled with family tradition.</p>
+      </div>
+
+      <div class="hero-media">
+        <!-- Use your real files; case matters -->
+        <figure class="img-swap" style="--ratio: 16/9;">
+          <img class="bw"    src="assets/recipepage/prettyballsbw.jpg" alt="Æbleskivers on plate">
+          <img class="color" src="assets/recipepage/prettyballs copy.jpg"   alt="" aria-hidden="true">
+        </figure>
+      </div>
+
+      <div class="hero-cta">
+        <a href="recipe.html" class="btn btn-primary">View Full Recipe</a>
+      </div>
+    </div>
+
+    <!-- ===== History ===== -->
+    <div class="card section-background" id="background">
+      <h2>Æbleskivers History</h2>
+      <p>Denmark, the most southern country in the Nordic Region, is a small, densely populated country made up of a large peninsula and nearby islands...</p>
+
+      <!-- Optional supporting media -->
+      <!--
+      <figure class="img-swap" style="--ratio: 4/3;">
+        <img class="bw"    src="assets/random/DenmarkBW.jpg" alt="Map of Denmark">
+        <img class="color" src="assets/random/Flag_of_Denmark.svg.png" alt="" aria-hidden="true">
+      </figure>
+      -->
+    </div>
+
+    <!-- ===== Family Background + Photos ===== -->
+    <div class="card section-family" id="family">
+      <h2>Family Background</h2>
+      <p>My great-grandparents on my dad’s side, with the last name of Kamp, immigrated to the United States during the Gold Rush...</p>
+
+      <div class="photo-grid" id="photos">
+        <!-- Tile 1 -->
+        <div class="photo-tile">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/myhistory/young_ballsbw.jpg" alt="Me — 2017">
+            <img class="color" src="assets/myhistory/young_balls.jpg"   alt="" aria-hidden="true">
+          </figure>
+        </div>
+
+        <!-- Tile 2 -->
+        <div class="photo-tile">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/myhistory/pj_meganbw.jpg" alt="Sister and I — 2018">
+            <img class="color" src="assets/myhistory/pj_megan.JPG"   alt="" aria-hidden="true">
+          </figure>
+        </div>
+
+        <!-- Add more tiles by duplicating the block above -->
+      </div>
+    </div>
+
+    <!-- ===== CTA ===== -->
+    <div class="card section-cta">
+      <h2>Ready to cook?</h2>
+      <p>Follow the step-by-step guide with photos and export a printable recipe card.</p>
+      <div class="cta-actions">
+        <a href="recipe.html" class="btn btn-primary">Open Recipe</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ================= Footer ================= -->
+  <footer class="container site-footer">
+    <p>© Kamp Family Æbleskiver Recipe</p>
+  </footer>
 </body>
 </html>

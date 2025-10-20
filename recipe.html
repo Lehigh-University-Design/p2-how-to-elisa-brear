@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Æbleskivers Recipe</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300..700&family=Playfair+Display:wght@400..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="logo-home" href="index.html" aria-label="Go to homepage">
+        <span class="logo-dot" aria-hidden="true"></span>
+        <strong class="wordmark">æbleskivers</strong>
+      </a>
+      <nav class="site-nav" aria-label="Primary">
+        <a href="recipe.html" class="active">Recipe</a>
+        <a href="index.html#background">Background</a>
+        <a href="index.html#photos">Photos</a>
+      </nav>
+      <div class="header-actions"></div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="container recipe-grid">
+    <!-- Left: Recipe Card -->
+    <article id="recipe-card" role="article" aria-labelledby="title">
+      <header class="recipe-head">
+        <h1 id="title">æbleskivers Recipe</h1>
+        <div class="head-actions">
+          <button id="btn-export" class="btn" type="button" aria-controls="recipe-card">Export PDF</button>
+          <button id="btn-share"  class="btn" type="button">Share</button>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <figure class="img-swap" style="--ratio: 16/9;">
+        <img class="bw"    src="assets/recipepage/prettyballsbw.jpg"   alt="Æbleskivers with strawberries">
+        <img class="color" src="assets/recipepage/prettyballs copy.jpg" alt="" aria-hidden="true">
+      </figure>
+
+      <!-- Meta pills (optional) -->
+      <div class="meta">
+        <div class="pill">Prep: 20 min</div>
+        <div class="pill">Cook: 90 min</div>
+        <div class="pill">Serves: 24</div>
+      </div>
+
+      <!-- Steps -->
+      <section class="steps" aria-label="Step by step">
+        <!-- Step 1 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/ingredientsbw.jpg" alt="Ingredients on counter">
+            <img class="color" src="assets/recipepage/ingredients.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>1) Gather & Prep Ingredients</h3>
+            <p>Measure dry ingredients; separate eggs; melt butter.</p>
+          </div>
+        </article>
+
+        <!-- Step 2 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/dry_ingredientsbw.jpg" alt="Dry ingredients">
+            <img class="color" src="assets/recipepage/dry_ingredients.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>2) Mix Dry Ingredients</h3>
+            <p>Whisk flour, sugar, salt, and baking soda together.</p>
+          </div>
+        </article>
+
+        <!-- Step 3 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Aebleskiver pan preheating">
+            <img class="color" src="assets/recipepage/pan.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>3) Heat Pan</h3>
+            <p>Preheat æbleskiver pan over medium-high; lightly butter cups.</p>
+          </div>
+        </article>
+
+        <!-- Add remaining steps similarly using your pairs:
+             ballsturn1bw.jpg + ballsturn1.JPG, ballsturn2bw.jpg + ballsturn2.JPG, etc. -->
+      </section>
+    </article>
+
+    <!-- Right: Sticky Ingredients -->
+    <aside class="ingredients" aria-label="Ingredients">
+      <h2>Ingredients</h2>
+      <ul>
+        <li><span>Flour</span><span>2 cups</span></li>
+        <li><span>Salt</span><span>1/2 tsp</span></li>
+        <li><span>Sugar</span><span>2 tbsp</span></li>
+        <li><span>Egg yolks</span><span>4</span></li>
+        <li><span>Buttermilk</span><span>1 ⅔ cups</span></li>
+        <li><span>Baking soda</span><span>1/2 tsp</span></li>
+        <li><span>Butter (melted)</span><span>½ stick</span></li>
+      </ul>
+    </aside>
+  </main>
+
+  <footer class="container site-footer">
+    <p>© Kamp Family Æbleskiver Recipe</p>
+  </footer>
+
+  <script>
+    // Print to PDF (only the recipe card prints due to @media print CSS)
+    document.getElementById('btn-export')?.addEventListener('click', () => window.print());
+
+    // Native Web Share (fallback alert if unsupported)
+    document.getElementById('btn-share')?.addEventListener('click', async () => {
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: document.title,
+            text: 'Kamp Family æbleskiver Recipe',
+            url: location.href
+          });
+        } catch (e) { /* user canceled */ }
+      } else {
+        alert('Sharing not supported on this browser. Use Export PDF instead.');
+      }
+    });
+  </script>
+</body>
+</html>
