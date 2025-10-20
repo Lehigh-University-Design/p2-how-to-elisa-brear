@@ -38,7 +38,7 @@ button { font: inherit; cursor: pointer; }
 =============================== */
 .site-header {
   position: sticky; top: 0; z-index: 50;
-  background: #fff;
+  background: var(--site-bg);
   border: 2px solid var(--border);
 }
 .header-grid {
@@ -88,7 +88,7 @@ button { font: inherit; cursor: pointer; }
 .section-family,
 .section-cta {
   border: 2px solid var(--border);
-  background: #fff;
+  background: var(--site-bg);
   border-radius: var(--radius);
   padding: 24px;
   margin-block: 32px;
@@ -98,7 +98,7 @@ button { font: inherit; cursor: pointer; }
 .btn {
   padding: 8px 12px;
   border: 2px solid var(--border);
-  background: #fff;
+  background: var(--site-bg);
   border-radius: var(--radius);
 }
 .btn:hover { background: var(--muted); }
@@ -129,40 +129,89 @@ button { font: inherit; cursor: pointer; }
 /* ===============================
    Recipe page layout
 =============================== */
+/* ===== Two-column: Main (steps) | Sidebar (ingredients) ===== */
 .recipe-grid {
-  display: grid; grid-template-columns: 1fr 320px; gap: var(--gap);
-  align-items: start; margin-top: 24px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px; /* main | sidebar */
+  gap: var(--gap);
+  align-items: start;
+  margin-top: 24px;
 }
+
+/* Main card */
 #recipe-card {
   border: 2px solid var(--border);
-  background: #fff;
+  background: var(--site-bg);
   border-radius: var(--radius);
   padding: 16px;
+  position: relative;   /* keeps content below the sticky aside */
+  z-index: 0;
 }
-.recipe-head { display: flex; align-items: center; gap: 12px; }
-.recipe-head h1 { margin: 0; font-size: clamp(1.5rem, 1rem + 2vw, 2.2rem); }
-.head-actions { margin-left: auto; display: flex; gap: 10px; }
 
+/* Sidebar */
 .ingredients {
-  position: sticky; top: 76px;
-  background: #fff;
+  position: sticky;
+  top: 76px;            /* adjust to your header height */
+  align-self: start;
+  background: var(--site-bg);
   border: 2px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
   max-height: calc(100dvh - 100px);
   overflow: auto;
+  z-index: 2;           /* sits above main if they touch */
 }
-.ingredients h2 { margin: 0 0 8px; font-size: 1.1rem; }
-.ingredients ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 6px; }
-.ingredients li { display: flex; justify-content: space-between; gap: 8px; border-bottom: 2px dashed var(--border); padding: 6px 0; }
-
 .steps { display: grid; gap: 14px; margin-top: 18px; }
 .step {
-  display: grid; grid-template-columns: 160px 1fr; gap: 14px;
-  border: 2px solid var(--border); border-radius: var(--radius); padding: 12px; background: #fff;
+  display: grid;
+  grid-template-columns: clamp(260px, 35vw, 520px) 1fr; /* image | text */
+  gap: 24px;
+  align-items: start;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  background: var(--site-bg);;
 }
+
 .step h3 { margin: 0 0 6px; font-size: 1.05rem; }
 .step p  { margin: 0; color: #333; }
+
+/* ===== Step-by-Step Section ===== */
+.step-card {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+}
+
+/* Make the image flexible and scale nicely */
+.step-card img {
+  flex-shrink: 0;
+  width: clamp(150px, 25vw, 280px); /* responsive scaling: never too small or too huge */
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid var(--border);
+  transition: transform 0.3s ease;
+}
+
+/* Optional: zoom slightly on hover */
+.step-card img:hover {
+  transform: scale(1.02);
+}
+
+/* Text stays neatly aligned and readable */
+.step-card-text {
+  flex: 1;
+}
+
+.step-card-text h3,
+.step-card-text p {
+  margin: 0.5rem 0;
+}
 
 /* ===============================
    B&W → Color hover (two-image stack)
@@ -193,4 +242,25 @@ button { font: inherit; cursor: pointer; }
   body * { visibility: hidden !important; }
   #recipe-card, #recipe-card * { visibility: visible !important; }
   #recipe-card { position: absolute; inset: 0; margin: 0; border: 2px solid var(--border); box-shadow: none; }
+}
+
+/* ====== Bottom Export Button ====== */
+.bottom-export {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.bottom-export .btn {
+  padding: 10px 18px;
+  font-size: 1rem;
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--site-bg);
+  transition: background 0.2s ease;
+}
+
+.bottom-export .btn:hover {
+  background: var(--muted);
 }

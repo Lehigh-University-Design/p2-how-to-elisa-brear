@@ -32,8 +32,8 @@
       <header class="recipe-head">
         <h1 id="title">æbleskivers Recipe</h1>
         <div class="head-actions">
-          <button id="btn-export" class="btn" type="button" aria-controls="recipe-card">Export PDF</button>
-          <button id="btn-share"  class="btn" type="button">Share</button>
+          <button id="btn-share-site" class="btn" type="button">Share</button>
+          <button id="btn-download-pdf" class="btn" type="button">Download PDF</button>
         </div>
       </header>
 
@@ -55,43 +55,91 @@
         <!-- Step 1 -->
         <article class="step">
           <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/ingredientsbw.jpg" alt="Ingredients on counter">
-            <img class="color" src="assets/recipepage/ingredients.JPG"   alt="" aria-hidden="true">
+            <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Ingredients on counter">
+            <img class="color" src="assets/recipepage/pan.JPG"   alt="" aria-hidden="true">
           </figure>
           <div>
-            <h3>1) Gather & Prep Ingredients</h3>
-            <p>Measure dry ingredients; separate eggs; melt butter.</p>
+            <h3>1) Gather Supplies</h3>
+            <p>Ensure you have a gas stove, an æbelsekiver pan(preheat to 400 degrees aka medium-high), bowls, measuring spoons, sifter, and a standing mixer before starting.</p>
           </div>
         </article>
 
         <!-- Step 2 -->
         <article class="step">
           <figure class="img-swap" style="--ratio: 1/1;">
-            <img class="bw"    src="assets/recipepage/dry_ingredientsbw.jpg" alt="Dry ingredients">
-            <img class="color" src="assets/recipepage/dry_ingredients.JPG"   alt="" aria-hidden="true">
+            <img class="bw"    src="assets/recipepage/ingredientsbw.jpg" alt="Dry ingredients">
+            <img class="color" src="assets/recipepage/ingredients.JPG"   alt="" aria-hidden="true">
           </figure>
           <div>
-            <h3>2) Mix Dry Ingredients</h3>
-            <p>Whisk flour, sugar, salt, and baking soda together.</p>
+            <h3>2) Prep Ingredients</h3>
+            <p>Gather together the ingredients which are: flour, salt, granulated sugar, nutmeg, eggs, buttermilk, regular milk, Crisco, butter, and baking soda. </p>
           </div>
         </article>
 
         <!-- Step 3 -->
         <article class="step">
           <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/dry_ingredientsbw.jpg" alt="Aebleskiver pan preheating">
+            <img class="color" src="assets/recipepage/dry_ingredients.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>3) Dry + Wet Ingredients</h3>
+            <p>Dry: Into a large bowl sift together the flour, salt, sugar, and then nutmeg.
+              <br>
+              <br> Wet: In another bowl whisk egg yolks, buttermilk, and milk. Add in after the dissolved basking soda+warm water mixture.
+              <br>
+              <br>In another bowl (using standing mixer) beat egg whites until soft peaks are formed.</p>
+          </div>
+        </article>
+
+        <!-- Step 4 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
             <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Aebleskiver pan preheating">
             <img class="color" src="assets/recipepage/pan.JPG"   alt="" aria-hidden="true">
           </figure>
           <div>
-            <h3>3) Heat Pan</h3>
+            <h3>4) Heat Pan</h3>
             <p>Preheat æbleskiver pan over medium-high; lightly butter cups.</p>
           </div>
         </article>
 
-        <!-- Add remaining steps similarly using your pairs:
-             ballsturn1bw.jpg + ballsturn1.JPG, ballsturn2bw.jpg + ballsturn2.JPG, etc. -->
-      </section>
-    </article>
+        <!-- Step 5 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Aebleskiver pan preheating">
+            <img class="color" src="assets/recipepage/pan.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>5) Heat Pan</h3>
+            <p>Preheat æbleskiver pan over medium-high; lightly butter cups.</p>
+          </div>
+        </article>
+
+        <!-- Step 6 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Aebleskiver pan preheating">
+            <img class="color" src="assets/recipepage/pan.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>6) Heat Pan</h3>
+            <p>Preheat æbleskiver pan over medium-high; lightly butter cups.</p>
+          </div>
+        </article>
+
+        <!-- Step 7 -->
+        <article class="step">
+          <figure class="img-swap" style="--ratio: 1/1;">
+            <img class="bw"    src="assets/recipepage/panbw.jpg" alt="Aebleskiver pan preheating">
+            <img class="color" src="assets/recipepage/pan.JPG"   alt="" aria-hidden="true">
+          </figure>
+          <div>
+            <h3>7) Heat Pan</h3>
+            <p>Preheat æbleskiver pan over medium-high; lightly butter cups.</p>
+          </div>
+        </article>
+
 
     <!-- Right: Sticky Ingredients -->
     <aside class="ingredients" aria-label="Ingredients">
@@ -106,6 +154,13 @@
         <li><span>Butter (melted)</span><span>½ stick</span></li>
       </ul>
     </aside>
+
+    <!-- Bottom Export Button -->
+    <div class="bottom-export">
+      <button id="btn-export" class="btn btn-primary" type="button" aria-controls="recipe-card">
+        Export Website Recipe as PDF
+      </button>
+    </div>
   </main>
 
   <footer class="container site-footer">
@@ -113,23 +168,46 @@
   </footer>
 
   <script>
-    // Print to PDF (only the recipe card prints due to @media print CSS)
-    document.getElementById('btn-export')?.addEventListener('click', () => window.print());
-
-    // Native Web Share (fallback alert if unsupported)
-    document.getElementById('btn-share')?.addEventListener('click', async () => {
+    // TODO: replace with your real public URL when deployed
+    const SITE_URL = 'https://your-domain.com/recipe.html'; // TODO real link
+  
+    // EXACT file path + case from your project:
+    const PDF_PATH = 'assets/random/recipe_card.pdf';
+  
+    // Share site link (copies link if Web Share isn't supported)
+    document.getElementById('btn-share-site')?.addEventListener('click', async () => {
+      const data = { title: 'Kamp Family æbleskiver Recipe', text: 'Here’s the recipe page!', url: SITE_URL };
       if (navigator.share) {
-        try {
-          await navigator.share({
-            title: document.title,
-            text: 'Kamp Family æbleskiver Recipe',
-            url: location.href
-          });
-        } catch (e) { /* user canceled */ }
+        try { await navigator.share(data); } catch {}
       } else {
-        alert('Sharing not supported on this browser. Use Export PDF instead.');
+        try { await navigator.clipboard.writeText(SITE_URL); alert('Link copied: ' + SITE_URL); }
+        catch { window.prompt('Copy this link:', SITE_URL); }
       }
     });
+  
+    // Robust download of the PDF (works even when browser prefers inline view)
+    document.getElementById('btn-download-pdf')?.addEventListener('click', async () => {
+      try {
+        const res = await fetch(PDF_PATH, { cache: 'no-store' });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const blob = await res.blob();
+        const url = URL.createObjectURL(blob);
+        const a = Object.assign(document.createElement('a'), {
+          href: url,
+          download: 'recipe_card.pdf'
+        });
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      } catch (e) {
+        // Fallback: open in a new tab so the user can save it
+        window.open(PDF_PATH, '_blank', 'noopener,noreferrer');
+      }
+    });
+  
+    // Print the on-page card
+    document.getElementById('btn-export')?.addEventListener('click', () => window.print());
   </script>
 </body>
 </html>
