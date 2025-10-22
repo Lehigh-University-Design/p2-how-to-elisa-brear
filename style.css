@@ -348,18 +348,14 @@ button { font: inherit; cursor: pointer; }
 .img-swap .color { opacity: 0; transition: opacity 220ms ease; }
 .img-swap:hover .color, .img-swap:focus-within .color { opacity: 1; }
 
-/* ===============================
-   Print to PDF (recipe only)
-=============================== */
+/* Print to PDF (recipe only)*/
 @media print {
   body * { visibility: hidden !important; }
   #recipe-card, #recipe-card * { visibility: visible !important; }
   #recipe-card { position: absolute; inset: 0; margin: 0; border: 2px solid var(--border); box-shadow: none; }
 }
 
-/* ===============================
-   Back to Top
-=============================== */
+/*  Back to Top*/
 .backtop-wrap {
   display: flex;
   justify-content: center;
