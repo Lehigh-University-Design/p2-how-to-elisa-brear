@@ -240,7 +240,7 @@
     updateIngredientsByBatches();
 
     // ===== Share (replace SITE_URL when deployed) =====
-    const SITE_URL = 'https://your-domain.com/recipe.html'; // TODO real link
+    const SITE_URL = 'https://lehigh-university-design.github.io/p2-how-to-elisa-brear/'; // TODO real link
     document.getElementById('btn-share-site')?.addEventListener('click', async () => {
       const data = { title: 'Kamp Family æbleskiver Recipe', text: 'Here’s the recipe page!', url: SITE_URL };
       if (navigator.share) {

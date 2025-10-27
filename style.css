@@ -77,9 +77,7 @@ button { font: inherit; cursor: pointer; }
   .site-nav { gap: 1rem; }
 }
 
-/* ===============================
-   Section boxes (black borders)
-=============================== */
+
 .card,
 .hero-section,
 .section-background,
@@ -124,9 +122,7 @@ button { font: inherit; cursor: pointer; }
 .photo-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 12px; }
 .photo-tile { display: grid; gap: 6px; }
 
-/* ===============================
-   History card (flag + text with label bar)
-=============================== */
+
 .history-card {
   position: relative;
   padding-top: 64px; /* space for the label bar */
@@ -140,7 +136,7 @@ button { font: inherit; cursor: pointer; }
   border-top-right-radius: var(--radius);
   background: var(--site-bg);
   font-family: var(--font-heading);
-  font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+  font-size: clampclamp(1.5rem, 1.2rem + 1vw, 2rem);
   font-weight: 700;
   padding: 12px 16px;
 }
